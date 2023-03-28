@@ -1,15 +1,16 @@
-package com.workshop.kartaca.auth;
+package com.workshop.kartaca.controller;
 
+import com.workshop.kartaca.auth.AuthenticationRequest;
+import com.workshop.kartaca.auth.AuthenticationResponse;
+import com.workshop.kartaca.auth.RegisterRequest;
 import com.workshop.kartaca.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping
 @RequiredArgsConstructor
 public class AuthenticationController {
 
@@ -21,11 +22,11 @@ public class AuthenticationController {
     ) {
         return ResponseEntity.ok(service.register(request));
     }
-    @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> login(
             @RequestBody AuthenticationRequest request
     ) {
-        return ResponseEntity.ok(service.authenticate(request));
+        return ResponseEntity.ok(service.login(request));
     }
 
 
