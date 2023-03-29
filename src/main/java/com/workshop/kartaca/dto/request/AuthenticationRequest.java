@@ -1,4 +1,4 @@
-package com.workshop.kartaca.auth;
+package com.workshop.kartaca.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

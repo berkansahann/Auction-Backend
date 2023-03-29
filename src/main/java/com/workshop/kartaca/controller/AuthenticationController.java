@@ -1,7 +1,7 @@
 package com.workshop.kartaca.controller;
 
-import com.workshop.kartaca.auth.AuthenticationRequest;
-import com.workshop.kartaca.auth.AuthenticationResponse;
+import com.workshop.kartaca.dto.request.AuthenticationRequest;
+import com.workshop.kartaca.dto.response.AuthenticationResponse;
 import com.workshop.kartaca.auth.RegisterRequest;
 import com.workshop.kartaca.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
