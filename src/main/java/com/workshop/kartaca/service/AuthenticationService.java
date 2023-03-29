@@ -1,8 +1,8 @@
 package com.workshop.kartaca.service;
 
-import com.workshop.kartaca.dto.request.AuthenticationRequest;
-import com.workshop.kartaca.dto.response.AuthenticationResponse;
-import com.workshop.kartaca.auth.RegisterRequest;
+import com.workshop.kartaca.dto.request.LoginRequest;
+import com.workshop.kartaca.dto.response.LoginResponse;
+import com.workshop.kartaca.dto.request.RegisterRequest;
 import com.workshop.kartaca.entity.Role;
 import com.workshop.kartaca.entity.User;
 import com.workshop.kartaca.repository.UserRepository;
@@ -17,12 +17,12 @@ import org.springframework.stereotype.Service;
 
 public class AuthenticationService {
 
-    private  final UserRepository repository;
+    private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public LoginResponse register(RegisterRequest request) {
         var user = User.builder()
                 .firstname(request.getFirstname())
                 .lastname(request.getLastname())
@@ -32,12 +32,12 @@ public class AuthenticationService {
                 .build();
         repository.save(user);
         var jwtToken = jwtService.generateToken(user);
-    return AuthenticationResponse.builder()
+    return LoginResponse.builder()
             .token(jwtToken)
             .build();
     }
 
-    public AuthenticationResponse login(AuthenticationRequest request) {
+    public LoginResponse login(LoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -47,7 +47,7 @@ public class AuthenticationService {
         var user = repository.findByEmail(request.getEmail())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
+        return LoginResponse.builder()
                 .token(jwtToken)
                 .build();
 
