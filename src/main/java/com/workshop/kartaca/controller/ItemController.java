@@ -1,8 +1,10 @@
 package com.workshop.kartaca.controller;
 
 import com.workshop.kartaca.dto.request.ItemCreateRequest;
+import com.workshop.kartaca.dto.request.ItemDeleteRequest;
 import com.workshop.kartaca.dto.request.ItemFindRequest;
 import com.workshop.kartaca.dto.response.ItemCreateResponse;
+import com.workshop.kartaca.dto.response.ItemDeleteResponse;
 import com.workshop.kartaca.dto.response.ItemFindResponse;
 import com.workshop.kartaca.entity.Item;
 import com.workshop.kartaca.repository.ItemRepository;
@@ -12,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -47,6 +50,13 @@ public class ItemController {
 
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ItemDeleteResponse> deleteItem(
+            @RequestBody ItemDeleteRequest request
+    ) {
+        return ResponseEntity.ok(service.deleteItem(request));
+    }
+
 /*
     @PutMapping("/{id}")
     public ResponseEntity<Item> updateItem(@PathVariable Integer id, @RequestBody Item item) {
@@ -58,14 +68,6 @@ public class ItemController {
             return ResponseEntity.notFound().build();
         }
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteItem(@PathVariable Integer id) {
-        Optional<Item> existingItem = itemRepository.findById(id);
-        if (existingItem.isPresent()) {
-            itemRepository.deleteById(id);
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }*/
+*/
+
 }

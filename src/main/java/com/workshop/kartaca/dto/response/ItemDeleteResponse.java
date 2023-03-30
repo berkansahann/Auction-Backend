@@ -1,4 +1,4 @@
-package com.workshop.kartaca.dto.request;
+package com.workshop.kartaca.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,9 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class ItemCreateRequest {
+public class ItemDeleteResponse {
 
-    private String name;
-    private String description;
-    private Integer price;
+    private String message = "Item deleted successfully";
 }

@@ -1,8 +1,10 @@
 package com.workshop.kartaca.service;
 
 import com.workshop.kartaca.dto.request.ItemCreateRequest;
+import com.workshop.kartaca.dto.request.ItemDeleteRequest;
 import com.workshop.kartaca.dto.request.ItemFindRequest;
 import com.workshop.kartaca.dto.response.ItemCreateResponse;
+import com.workshop.kartaca.dto.response.ItemDeleteResponse;
 import com.workshop.kartaca.dto.response.ItemFindResponse;
 import com.workshop.kartaca.entity.Item;
 import com.workshop.kartaca.repository.ItemRepository;
@@ -10,8 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +19,7 @@ public class ItemService {
 
     private final ItemRepository repository;
 
-    public ItemCreateResponse createItem(ItemCreateRequest request){
+    public ItemCreateResponse createItem(ItemCreateRequest request) {
         Date date = new Date();
         var item = Item.builder()
                 .name(request.getName())
@@ -37,11 +37,7 @@ public class ItemService {
                 .build();
     }
 
-    public List<Item> getAllItems() {
-        return repository.findAll();
-    }
-
-      public ItemFindResponse getItemById(ItemFindRequest request) {
+    public ItemFindResponse getItemById(ItemFindRequest request) {
         var item = repository.findById(request.getId())
                 .orElseThrow();
         return ItemFindResponse.builder()
@@ -50,6 +46,12 @@ public class ItemService {
                 .date(item.getDate())
                 .lastdate(item.getLastdate())
                 .price(item.getPrice())
+                .build();
+    }
+
+    public ItemDeleteResponse deleteItem(ItemDeleteRequest request) {
+        repository.deleteById(request.getId());
+        return ItemDeleteResponse.builder()
                 .build();
     }
 /*
@@ -67,13 +69,6 @@ public class ItemService {
         }
     }
 
-    public boolean deleteItem(Integer id) {
-        Optional<Item> existingItem = itemRepository.findById(id);
-        if (existingItem.isPresent()) {
-            itemRepository.deleteById(id);
-            return true;
-        } else {
-            return false;
-        }
+
     }*/
-}
+    }
