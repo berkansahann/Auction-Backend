@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemCreateRequest {
+public class ItemFindRequest {
 
-    private String name;
-    private String description;
-    private Integer price;
+    private Integer id;
 }

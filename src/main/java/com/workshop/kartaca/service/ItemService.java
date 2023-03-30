@@ -1,7 +1,9 @@
 package com.workshop.kartaca.service;
 
 import com.workshop.kartaca.dto.request.ItemCreateRequest;
+import com.workshop.kartaca.dto.request.ItemFindRequest;
 import com.workshop.kartaca.dto.response.ItemCreateResponse;
+import com.workshop.kartaca.dto.response.ItemFindResponse;
 import com.workshop.kartaca.entity.Item;
 import com.workshop.kartaca.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,11 +40,19 @@ public class ItemService {
     public List<Item> getAllItems() {
         return repository.findAll();
     }
-/*
-      public Optional<Item> getItemById(Integer id) {
-        return itemRepository.findById(id);
-    }
 
+      public ItemFindResponse getItemById(ItemFindRequest request) {
+        var item = repository.findById(request.getId())
+                .orElseThrow();
+        return ItemFindResponse.builder()
+                .name(item.getName())
+                .description(item.getDescription())
+                .date(item.getDate())
+                .lastdate(item.getLastdate())
+                .price(item.getPrice())
+                .build();
+    }
+/*
     public Optional<Item> updateItem(Integer id, Item newItem) {
         Optional<Item> existingItem = itemRepository.findById(id);
         if (existingItem.isPresent()) {

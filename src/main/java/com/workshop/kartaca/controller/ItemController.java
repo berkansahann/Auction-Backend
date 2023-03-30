@@ -1,7 +1,9 @@
 package com.workshop.kartaca.controller;
 
 import com.workshop.kartaca.dto.request.ItemCreateRequest;
+import com.workshop.kartaca.dto.request.ItemFindRequest;
 import com.workshop.kartaca.dto.response.ItemCreateResponse;
+import com.workshop.kartaca.dto.response.ItemFindResponse;
 import com.workshop.kartaca.entity.Item;
 import com.workshop.kartaca.repository.ItemRepository;
 import com.workshop.kartaca.service.ItemService;
@@ -36,18 +38,16 @@ public class ItemController {
             return ResponseEntity.ok(item);
         }
     }
-/*
+
     @GetMapping("/{id}")
-    public ResponseEntity<ItemRequest> getItemById(@PathVariable Integer id) {
-        Optional<Item> item = itemRepository.findById(id);
-        if (item.isPresent()) {
-            return ResponseEntity.ok(item.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<ItemFindResponse> getItemById(
+            @RequestBody ItemFindRequest request
+    ) {
+        return ResponseEntity.ok(service.getItemById(request));
+
     }
 
-
+/*
     @PutMapping("/{id}")
     public ResponseEntity<Item> updateItem(@PathVariable Integer id, @RequestBody Item item) {
         Optional<Item> existingItem = itemRepository.findById(id);
