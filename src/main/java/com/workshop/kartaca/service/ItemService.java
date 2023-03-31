@@ -3,9 +3,11 @@ package com.workshop.kartaca.service;
 import com.workshop.kartaca.dto.request.ItemCreateRequest;
 import com.workshop.kartaca.dto.request.ItemDeleteRequest;
 import com.workshop.kartaca.dto.request.ItemFindRequest;
+import com.workshop.kartaca.dto.request.ItemUpdateRequest;
 import com.workshop.kartaca.dto.response.ItemCreateResponse;
 import com.workshop.kartaca.dto.response.ItemDeleteResponse;
 import com.workshop.kartaca.dto.response.ItemFindResponse;
+import com.workshop.kartaca.dto.response.ItemUpdateResponse;
 import com.workshop.kartaca.entity.Item;
 import com.workshop.kartaca.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,7 @@ public class ItemService {
                 .date(date)
                 .lastdate(new Date(date.getTime() + 1000 * 60 * 60 * 24))
                 .price(request.getPrice())
+                .firstPrice(request.getPrice())
                 .build();
         repository.save(item);
         return ItemCreateResponse.builder()
@@ -54,21 +57,15 @@ public class ItemService {
         return ItemDeleteResponse.builder()
                 .build();
     }
-/*
-    public Optional<Item> updateItem(Integer id, Item newItem) {
-        Optional<Item> existingItem = itemRepository.findById(id);
-        if (existingItem.isPresent()) {
-            Item oldItem = existingItem.get();
-            oldItem.setName(newItem.getName());
-            oldItem.setDescription(newItem.getDescription());
-            oldItem.setDate(newItem.getDate());
-            oldItem.setPrice(newItem.getPrice());
-            return Optional.of(itemRepository.save(oldItem));
-        } else {
-            return Optional.empty();
-        }
-    }
 
-
-    }*/
+    public ItemUpdateResponse updateItem(ItemUpdateRequest request) {
+        var item = repository.findById(request.getId())
+                .orElseThrow();
+        item.setPrice(request.getPrice());
+        repository.save(item);
+        return ItemUpdateResponse.builder()
+                .id(item.getId())
+                .price(item.getPrice())
+                .build();
     }
+}
