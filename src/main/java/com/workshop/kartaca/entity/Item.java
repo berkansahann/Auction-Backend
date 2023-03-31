@@ -18,13 +18,14 @@ import java.util.Date;
 @Entity
 @Table(name = "item")
 public class Item {
+
     @Id
     @GeneratedValue
     private Integer id;
     private String name;
     private String description;
     private Date date;
-    private Date lastdate;
+    private Date lastDate;
     private Integer price;
     private Integer firstPrice;
 

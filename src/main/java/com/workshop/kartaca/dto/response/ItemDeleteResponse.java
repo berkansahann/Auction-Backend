@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class ItemDeleteResponse {
 
-    private String message = "Item deleted successfully";
+    private String message;
 }

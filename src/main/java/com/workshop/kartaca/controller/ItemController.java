@@ -64,17 +64,4 @@ public class ItemController {
     ) {
         return ResponseEntity.ok(service.updateItem(request));
     }
-/*
-    @PutMapping("/{id}")
-    public ResponseEntity<Item> updateItem(@PathVariable Integer id, @RequestBody Item item) {
-        Optional<Item> existingItem = itemRepository.findById(id);
-        if (existingItem.isPresent()) {
-            Item updatedItem = itemRepository.save(item);
-            return ResponseEntity.ok(updatedItem);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-*/
-
 }

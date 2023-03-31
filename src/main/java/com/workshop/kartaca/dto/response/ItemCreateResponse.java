@@ -16,7 +16,7 @@ public class ItemCreateResponse {
 
     private String name;
     private String description;
-    private Date lastdate;
     private Integer price;
+    private Date lastDate;
 }
 

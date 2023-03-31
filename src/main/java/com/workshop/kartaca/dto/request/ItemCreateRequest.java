@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class ItemCreateRequest {
 
     private String name;
     private String description;
     private Integer price;
+    private Integer hour;
 }

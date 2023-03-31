@@ -17,7 +17,7 @@ public class ItemFindResponse {
     private String name;
     private String description;
     private Date date;
-    private Date lastdate;
+    private Date lastDate;
     private Integer price;
 }
 

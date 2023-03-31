@@ -23,11 +23,12 @@ public class ItemService {
 
     public ItemCreateResponse createItem(ItemCreateRequest request) {
         Date date = new Date();
+        int x = request.getHour();
         var item = Item.builder()
                 .name(request.getName())
                 .description(request.getDescription())
                 .date(date)
-                .lastdate(new Date(date.getTime() + 1000 * 60 * 60 * 24))
+                .lastDate(new Date(date.getTime() + 1000L * 60 * 60 * x))
                 .price(request.getPrice())
                 .firstPrice(request.getPrice())
                 .build();
@@ -35,7 +36,7 @@ public class ItemService {
         return ItemCreateResponse.builder()
                 .name(item.getName())
                 .description(item.getDescription())
-                .lastdate(item.getLastdate())
+                .lastDate(item.getLastDate())
                 .price(item.getPrice())
                 .build();
     }
@@ -47,7 +48,7 @@ public class ItemService {
                 .name(item.getName())
                 .description(item.getDescription())
                 .date(item.getDate())
-                .lastdate(item.getLastdate())
+                .lastDate(item.getLastDate())
                 .price(item.getPrice())
                 .build();
     }
