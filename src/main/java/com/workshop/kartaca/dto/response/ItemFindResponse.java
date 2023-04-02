@@ -14,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class ItemFindResponse {
 
+    private Integer id;
     private String name;
     private String description;
     private Date date;

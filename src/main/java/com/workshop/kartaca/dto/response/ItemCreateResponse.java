@@ -14,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class ItemCreateResponse {
 
+    private Integer id;
     private String name;
     private String description;
     private Integer price;

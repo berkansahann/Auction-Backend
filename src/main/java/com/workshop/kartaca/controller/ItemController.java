@@ -2,7 +2,6 @@ package com.workshop.kartaca.controller;
 
 import com.workshop.kartaca.dto.request.ItemCreateRequest;
 import com.workshop.kartaca.dto.request.ItemDeleteRequest;
-import com.workshop.kartaca.dto.request.ItemFindRequest;
 import com.workshop.kartaca.dto.request.ItemUpdateRequest;
 import com.workshop.kartaca.dto.response.ItemCreateResponse;
 import com.workshop.kartaca.dto.response.ItemDeleteResponse;
@@ -45,10 +44,9 @@ public class ItemController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ItemFindResponse> getItemById(
-            @RequestBody ItemFindRequest request
-    ) {
-        return ResponseEntity.ok(service.getItemById(request));
-
+            @PathVariable int id)
+    {
+        return ResponseEntity.ok(service.getItemById(id));
     }
 
     @DeleteMapping("/{id}")

@@ -2,7 +2,6 @@ package com.workshop.kartaca.service;
 
 import com.workshop.kartaca.dto.request.ItemCreateRequest;
 import com.workshop.kartaca.dto.request.ItemDeleteRequest;
-import com.workshop.kartaca.dto.request.ItemFindRequest;
 import com.workshop.kartaca.dto.request.ItemUpdateRequest;
 import com.workshop.kartaca.dto.response.ItemCreateResponse;
 import com.workshop.kartaca.dto.response.ItemDeleteResponse;
@@ -12,6 +11,7 @@ import com.workshop.kartaca.entity.Item;
 import com.workshop.kartaca.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Date;
 
@@ -34,6 +34,7 @@ public class ItemService {
                 .build();
         repository.save(item);
         return ItemCreateResponse.builder()
+                .id(item.getId())
                 .name(item.getName())
                 .description(item.getDescription())
                 .lastDate(item.getLastDate())
@@ -41,10 +42,11 @@ public class ItemService {
                 .build();
     }
 
-    public ItemFindResponse getItemById(ItemFindRequest request) {
-        var item = repository.findById(request.getId())
+    public ItemFindResponse getItemById(@PathVariable int id) {
+        var item = repository.findById(id)
                 .orElseThrow();
         return ItemFindResponse.builder()
+                .id(item.getId())
                 .name(item.getName())
                 .description(item.getDescription())
                 .date(item.getDate())

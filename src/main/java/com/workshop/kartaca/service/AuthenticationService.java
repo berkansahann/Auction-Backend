@@ -3,7 +3,6 @@ package com.workshop.kartaca.service;
 import com.workshop.kartaca.dto.request.LoginRequest;
 import com.workshop.kartaca.dto.request.RegisterRequest;
 import com.workshop.kartaca.dto.response.LoginResponse;
-import com.workshop.kartaca.dto.response.RegisterResponse;
 import com.workshop.kartaca.entity.Role;
 import com.workshop.kartaca.entity.Token;
 import com.workshop.kartaca.entity.TokenType;
@@ -27,7 +26,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public RegisterResponse register(RegisterRequest request) {
+    public LoginResponse register(RegisterRequest request) {
         var user = User.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -38,7 +37,7 @@ public class AuthenticationService {
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
         saveUserToken(savedUser, jwtToken);
-        return RegisterResponse.builder()
+        return LoginResponse.builder()
                 .token(jwtToken)
                 .userId(savedUser.getId())
                 .build();
