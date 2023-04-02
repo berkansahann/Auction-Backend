@@ -13,6 +13,5 @@ public class LoginRequest {
 
     private String email;
     String password;
-
 }
 
