@@ -2,6 +2,7 @@ package com.workshop.kartaca.service;
 
 import com.workshop.kartaca.dto.request.BidCreateRequest;
 import com.workshop.kartaca.dto.response.BidCreateResponse;
+import com.workshop.kartaca.dto.response.BidFindResponse;
 import com.workshop.kartaca.entity.Bid;
 import com.workshop.kartaca.entity.Item;
 import com.workshop.kartaca.entity.User;
@@ -10,10 +11,10 @@ import com.workshop.kartaca.repository.ItemRepository;
 import com.workshop.kartaca.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
 @RequiredArgsConstructor
-
 public class BidService {
 
     private final BidRepository bidRepository;
@@ -38,6 +39,17 @@ public class BidService {
                 .id(bid.getId())
                 .userId(user.getId())
                 .itemId(item.getId())
+                .price(bid.getPrice())
+                .build();
+    }
+
+    public BidFindResponse getBidById(@PathVariable int id) {
+        var bid = bidRepository.findById(id)
+                .orElseThrow();
+        return BidFindResponse.builder()
+                .id(bid.getId())
+                .userId(bid.getUser().getId())
+                .itemId(bid.getItem().getId())
                 .price(bid.getPrice())
                 .build();
     }

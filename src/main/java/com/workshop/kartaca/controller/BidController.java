@@ -2,6 +2,8 @@ package com.workshop.kartaca.controller;
 
 import com.workshop.kartaca.dto.request.BidCreateRequest;
 import com.workshop.kartaca.dto.response.BidCreateResponse;
+import com.workshop.kartaca.dto.response.BidFindResponse;
+import com.workshop.kartaca.dto.response.ItemFindResponse;
 import com.workshop.kartaca.service.BidService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,5 +22,12 @@ public class BidController {
             @RequestBody BidCreateRequest request
     ) {
         return ResponseEntity.ok(service.createBid(request));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BidFindResponse> getBidById(
+            @PathVariable int id)
+    {
+        return ResponseEntity.ok(service.getBidById(id));
     }
 }
