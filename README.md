@@ -18,10 +18,6 @@ Keyin ilk hali 3851w0827yx989x48y8763zu37y341u815yyx2u29vu8xyvxw26737zzxyxw5yu9
 
 Çözülmüş hali  3851d0827bc989c48b8763af37b341f815bbc2f29ef8cbecd26737aacbcd5bf9
 
-Home Page
-
-![image](https://user-images.githubusercontent.com/55889142/229372771-148d970f-c598-4b55-ac13-9e87916f5549.png)
-
 Register Page
 
 ![image](https://user-images.githubusercontent.com/55889142/229372786-5388a0b6-4cfe-4d81-9773-4b4a14439e06.png)
@@ -29,6 +25,9 @@ Register Page
 Login Page
 
 ![image](https://user-images.githubusercontent.com/55889142/229371057-a3ce6a4d-1cdb-471f-ada4-e79309cee73f.png)
+Home Page
+
+![image](https://user-images.githubusercontent.com/55889142/229372771-148d970f-c598-4b55-ac13-9e87916f5549.png)
 
 New Auction Page
 
