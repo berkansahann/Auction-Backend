@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/bid")
@@ -24,9 +26,9 @@ public class BidController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BidFindResponse> getBidById(
+    public ResponseEntity<List<BidFindResponse>> getBidsByItem_Id(
             @PathVariable int id)
     {
-        return ResponseEntity.ok(service.getBidById(id));
+        return ResponseEntity.ok(service.getBidsByItem_Id(id));
     }
 }
