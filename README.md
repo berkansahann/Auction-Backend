@@ -14,6 +14,8 @@ Ana sayfada istenilen ürün için offer tuşuna basılırsa teklif verebileceğ
 
 Maalesef docker ile derlemeyi denesem de çözemediğim hatalarla karşılaştım, bu yüzden bunu yapamadım. Docker branchinde son gelebildiğim kısım bulunuyor. AWS üzerinden bir mysql serveri açtım ve o branchin bağlantılarını o şekilde bıraktım.
 
+Backend tarafında projeyi çalıştırmak için local bir database gerekli. Frontend tarafında ise öncelikle 'yarn' komutu ile çalıştırılıp, sonrasında ise 'yarn dev' komutu girilmelidir. 
+
 Keyin ilk hali 3851w0827yx989x48y8763zu37y341u815yyx2u29vu8xyvxw26737zzxyxw5yu9
 
 Çözülmüş hali  3851d0827bc989c48b8763af37b341f815bbc2f29ef8cbecd26737aacbcd5bf9
