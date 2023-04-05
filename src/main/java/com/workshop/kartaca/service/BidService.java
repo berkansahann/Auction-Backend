@@ -46,9 +46,12 @@ public class BidService {
     public BidFindResponse getBidById(@PathVariable int id) {
         var bid = bidRepository.findById(id)
                 .orElseThrow();
+        var user = userRepository.findById(bid.getUser().getId())
+                .orElseThrow();
         return BidFindResponse.builder()
                 .id(bid.getId())
-                .userId(bid.getUser().getId())
+                .userFirstName(user.getFirstName())
+                .userLastName(user.getLastName())
                 .itemId(bid.getItem().getId())
                 .price(bid.getPrice())
                 .build();

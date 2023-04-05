@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 public class BidFindResponse {
 
     private Integer id;
-    private Integer userId;
+    private String userFirstName;
+    private String userLastName;
     private Integer itemId;
     private Integer price;
 }
