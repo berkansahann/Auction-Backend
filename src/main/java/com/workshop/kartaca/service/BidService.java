@@ -48,33 +48,6 @@ public class BidService {
                 .build();
     }
 
-    /*public BidFindResponse getBidById(@PathVariable int id) {
-        var bid = bidRepository.findById(id)
-                .orElseThrow();
-        var user = userRepository.findById(bid.getUser().getId())
-                .orElseThrow();
-        return BidFindResponse.builder()
-                .id(bid.getId())
-                .userFirstName(user.getFirstName())
-                .userLastName(user.getLastName())
-                .itemId(bid.getItem().getId())
-                .price(bid.getPrice())
-                .build();
-    }*/
-
-/*    public BidFindResponse getBidsByItem_Id(@PathVariable int id){
-        var bid = bidRepository.getBidsByItem_Id(id);
-        var user = userRepository.findById(bid.get(0).getUser().getId())
-                .orElseThrow();
-        return BidFindResponse.builder()
-                .id(bid.get(0).getId())
-                .userFirstName(user.getFirstName())
-                .userLastName(user.getLastName())
-                .itemId(bid.get(0).getItem().getId())
-                .price(bid.get(0).getPrice())
-                .build();
-    }*/
-
     public List<BidFindResponse> getBidsByItem_Id(@PathVariable int id) {
         var bids = bidRepository.getBidsByItem_Id(id);
         List<BidFindResponse> bidFindResponses = new ArrayList<>();
