@@ -12,7 +12,7 @@ I've added a "New Auction" button to the homepage so members can be pu up for au
 
 When the "Offer" button on the main page is pressed, you are directed to a page where you can bid for the desired product.
 
-On the item details page, you can see previous bidders for current item.
+On the bid page, you can see previous bidders for current item.
 
 Register Page
 
