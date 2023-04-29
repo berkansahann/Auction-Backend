@@ -1,24 +1,16 @@
-# Kartaca-Backend
+# Auction Website Backend
 
-kartaca test case backend
+Auction Website backend
 
-Merhaba, bu projenin ön yüzünde react, arka yüzünde spring, database olarak ise postgresql kullandım. Projeyi monolithic mimaride geliştirdim.
+Hello, i use Spring on the backend side of this project. I preffered postgresql for a database. I developed the project in monolithic architecture.
 
-Kullanıcı üyeliği yapma, oturum açma ve kapatma özellikleri tamamen aktif bir şekilde çalışıyor. 
+On authentication side, user subscription, login and logout features are fully active. I used JWT for authentication.
 
-Üyelerin yeni eşyaları açık arttırmaya çıkartabilmesi için ana sayfaya "new auction" sekmesini ekledim. Kullanıcılar buradaki panel sayesinde gerekli bilgileri doldurarak yeni eşyaları da açık arttırmaya sunabilecekler.
+Users who are not logged in and do not have the required token are redicted to the login page.
 
-Oturum açmamış, yani gerekli token'a sahip olmayan kullanıcılar oturum açma sayfasına yönlendiriliyor.
+I've added a "New Auction" button to the homepage so members can be pu up for auctioning new items. Users will be able to submit new items to the auction by filling in the necessary information thanks to the panel here.
 
-Ana sayfada istenilen ürün için offer tuşuna basılırsa teklif verebileceği bir sayfaya yönlendirilir.
-
-Maalesef docker ile derlemeyi denesem de çözemediğim hatalarla karşılaştım, bu yüzden bunu yapamadım. Docker branchinde son gelebildiğim kısım bulunuyor. AWS üzerinden bir mysql serveri açtım ve o branchin bağlantılarını o şekilde bıraktım.
-
-Backend tarafında projeyi çalıştırmak için local bir database gerekli. Frontend tarafında ise öncelikle 'yarn' komutu ile çalıştırılıp, sonrasında ise 'yarn dev' komutu girilmelidir. 
-
-Keyin ilk hali 3851w0827yx989x48y8763zu37y341u815yyx2u29vu8xyvxw26737zzxyxw5yu9
-
-Çözülmüş hali  3851d0827bc989c48b8763af37b341f815bbc2f29ef8cbecd26737aacbcd5bf9
+When the bid button on the main page is pressed, you are directed to a page where you can bid for the desired product.
 
 Register Page
 
