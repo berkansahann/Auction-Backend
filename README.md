@@ -1,18 +1,18 @@
 # Auction Website Backend
 
-Auction Website backend
+Auction Website Backend
 
-Hello, i use Spring on the backend side of this project. I preffered postgresql for a database. I developed the project in monolithic architecture.
+Hello, I used Spring on the backend side of this project and preferred PostgreSQL as the database. I developed the project using a monolithic architecture.
 
-On authentication side, user subscription, login and logout features are fully active. I used JWT for authentication.
+On the authentication side, user subscription, login, and logout features are fully functional. I used JWT for authentication.
 
-Users who are not logged in and do not have the required token are redicted to the login page.
+Users who are not logged in and do not have the required token are redirected to the login page.
 
-I've added a "New Auction" button to the homepage so members can be pu up for auctioning new items. Users will be able to submit new items to the auction by filling in the necessary information thanks to the panel here.
+I have added a "New Auction" button to the homepage so that members can put up new items for auction. Users will be able to submit new items to the auction by filling in the necessary information on the panel.
 
 When the "Offer" button on the main page is pressed, you are directed to a page where you can bid for the desired product.
 
-On the bid page, you can see previous bidders for current item.
+On the bid page, you can see the previous bidders for the current item.
 
 Register Page
 
