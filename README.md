@@ -10,7 +10,9 @@ Users who are not logged in and do not have the required token are redicted to t
 
 I've added a "New Auction" button to the homepage so members can be pu up for auctioning new items. Users will be able to submit new items to the auction by filling in the necessary information thanks to the panel here.
 
-When the bid button on the main page is pressed, you are directed to a page where you can bid for the desired product.
+When the "Offer" button on the main page is pressed, you are directed to a page where you can bid for the desired product.
+
+On the item details page, you can see previous bidders for current item.
 
 Register Page
 
