@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KartacaApplication {
+public class AuctionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KartacaApplication.class, args);
+		SpringApplication.run(AuctionApplication.class, args);
 	}
 
 }
